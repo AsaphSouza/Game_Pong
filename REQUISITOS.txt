@@ -1,0 +1,16 @@
+REQUISITOS - PONG - ASAPH SOUZA - IFPE - 4° PERÍODO - TÉC. EM INFORMÁTICA
+=======================================================================================================================================
+1. marcar pontuação 
+2. movimentar verticalmente as barras representando os players 
+3. aplicar física as barras e bola 
+4. aplicar repulsão da bola no contato com as barras 
+5. aplicar inteligência artificial na barra que representa o jogador adversário (celular) para procurar o local que a bola está indo
+6. fazer uma barra vertical tracejada no meio com o intuito de dividir os campos dos players
+7. aumentar a velocidade da bola gradativamente
+8. aumentar a inteligência do player adversário conforme a velocidade for aumentando
+9. aumentar a velocidade da bola naquela jogada caso bata nas pontas
+10. pontuação máxima de 10 pontos 
+11. mostrar menu de jogar novamente ou sair do jogo ao final da partida
+12. mostrar tela de escolha do nível(easy, medium, hard)
+13. lançar bola do meio inclinada para diagonal esquerda todas as vezes que iniciar a jogada, na direção de quem marcou o ponto anterior.  
+
