@@ -12,5 +12,6 @@ REQUISITOS - PONG - ASAPH SOUZA - IFPE - 4° PERÍODO - TÉC. EM INFORMÁTICA
 10. pontuação máxima de 10 pontos 
 11. mostrar menu de jogar novamente ou sair do jogo ao final da partida
 12. mostrar tela de escolha do nível(easy, medium, hard)
-13. lançar bola do meio inclinada para diagonal esquerda todas as vezes que iniciar a jogada, na direção de quem marcou o ponto anterior.  
+13. lançar bola do meio inclinada para diagonal esquerda todas as vezes que iniciar a jogada, na direção de quem marcou o ponto anterior.
+14. o jogo terá que mostrar um ranking. A colocação será de acordo com o tempo de vitória de cada jogador.  
 
