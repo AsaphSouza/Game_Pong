@@ -6,6 +6,7 @@
 
 -- Your code here
 local physics = require("physics")
+local timer = require("timer")
 physics.start()
 
 --linha lateral esquerda
@@ -61,34 +62,49 @@ local mobile = {
     name = "mobile",
     score = 0
 }
-
+function imprimefraseGol(event)
+    display.newText("GoooL", display.contentCenterX, display.contentCenterY + 30)
+end
 local function gol( self, event )
- 
     local pontuacaoMax = 10
+    
     local objeto = event.other
     if ( objeto.surfaceType == "linha superior" ) then
-       display.newText("GoooL", display.contentCenterX, display.contentCenterY - 30)
-       pontuacao(you)
-    elseif ( objeto.surfaceType == "linha inferior" ) then 
-        display.newText("GoooL", display.contentCenterX, display.contentCenterY + 30)
-        pontuacao(mobile)
+        tempo = timer.performWithDelay(3000,imprimefraseGol,3)
+        timer.pause(tempo)
+       -- display.newText("GoooL", display.contentCenterX, display.contentCenterY + 30)
+        display.remove(gol_2)
+        pontuacao(you,pontuacaoMax)
+        printPontuacao(you)
+        
+    elseif ( objeto.surfaceType == "linha inferior" ) then
+        tempo = timer.performWithDelay(3000,imprimefraseGol,3)
+        timer.pause(tempo)
+        --display.newText("GoooL", display.contentCenterX, display.contentCenterY - 30)
+        display.remove(gol_1)
+        pontuacao(mobile,pontuacaoMax)
+        printPontuacao(mobile)
     else
     end
  end
 
- function pontuacao(jogador)
-    if jogador.name == "mobile" then
-        display.newText(jogador.score, display.actualContentWidth - 30, display.contentCenterY - 30)
-    else 
-        display.newText(jogador.score, display.actualContentWidth - 30, display.contentCenterY + 30)
+ function pontuacao(jogador,pontuacaoMax)
+    if (jogador.score >= pontuacaoMax) then 
+        return jogador.score
+    else
+        jogador.score = jogador.score + 1
+        return jogador.score
     end
     
-    if (jogador.score == pontuacaoMax) then 
-        return jogador.score
+end
+
+function printPontuacao (jogador)
+    if jogador.name == "mobile" then
+        gol_1 = display.newText(jogador.score, display.actualContentWidth - 30, display.contentCenterY - 30)
     else 
-        return jogador.score + 1
+        gol_2 = display.newText(jogador.score, display.actualContentWidth - 30, display.contentCenterY + 30)
     end
-end 
+end
 
 local function inserirNome(nome)
     if nome == "mobile" then 
@@ -103,4 +119,6 @@ inserirNome(mobile.name)
 inserirNome(you.name)
 bola.collision = gol
 bola:addEventListener( "collision" )
+printPontuacao(mobile)
+printPontuacao(you)
 Runtime:addEventListener("accelerometer", aplicarAceleracao)
